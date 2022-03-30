@@ -1,0 +1,480 @@
+@charset "UTF-8";
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import './_variables.scss';
+@import './_custom.scss';
+@import './_header.scss';
+@import './_main.scss';
+@import './_footer.scss';
+
+.intro_bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    background: #4b4b4b;
+    transition: 1s;
+
+    div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10.1vw;
+        height: 100%;
+        transition: 1s;
+        box-shadow: -5px 0 5px rgba(0, 0, 0, .4);
+
+        &:nth-child(1) {
+            background: rgb(100, 250, 255);
+            transform: skew(30deg) translateX(20vw);
+            transition-delay: 0s;
+        }
+        &:nth-child(2) {
+            background: rgb(100, 230, 255);
+            transform: skew(30deg) translateX(30vw);
+            transition-delay: .2s;
+        }
+        &:nth-child(3) {
+            background: rgb(100, 210, 255);
+            transform: skew(30deg) translateX(40vw);
+            transition-delay: .4s;
+        }
+        &:nth-child(4) {
+            background: rgb(100, 190, 255);
+            transform: skew(30deg) translateX(50vw);
+            transition-delay: .6s;
+        }
+        &:nth-child(5) {
+            background: rgb(100, 170, 255);
+            transform: skew(30deg) translateX(60vw);
+            transition-delay: .8s;
+        }
+        &:nth-child(6) {
+            background: rgb(100, 150, 255);
+            transform: skew(30deg) translateX(70vw);
+            transition-delay: 1s;
+        }
+    }
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.gradient_banner {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 120px;
+    position: absolute;
+    z-index: 3;
+    bottom: -60px;
+    left: 0;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url(../img/gradientBanner_bg.jpg) no-repeat;
+        background-size: cover;
+        background-position: 50%;
+    }
+
+    .progress_bar {
+        width: 120px;
+        height: 2px;
+        position: absolute;
+        left: 170px;
+        background: rgba(255, 255, 255, .2);
+        overflow: hidden;
+
+        span {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: $white;
+            transform: translateX(-100%);
+
+            &.on {
+                animation: startVideo 21s linear infinite;
+                
+                @keyframes startVideo {
+                    from {transform: translateX(-100%);}
+                    to {transform: translateX(0);}
+                }
+            }
+        }
+    }
+
+    .btn_wrap {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 40px;
+        background: transparent;
+        cursor: pointer;
+
+        .btn_label {
+            margin-right: 20px;
+            color: $white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .svg_wrap {
+            width: 56px;
+            height: 56px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 50%;
+
+            .svg_circle {
+                position: absolute;
+                top: -1px;
+                left: -1px;
+                transform: rotate(-90deg);
+
+                circle {
+                    stroke: $white;
+                    stroke-dasharray: 176px;
+                    stroke-dashoffset: 176px;
+                    transition: stroke-dashoffset 0s;
+                }
+                circle.on {
+                    stroke-dashoffset: -176px;
+                    transition: stroke-dashoffset .3s;
+                }
+            }
+        }
+
+        &:hover {
+
+            .svg_circle {
+
+                circle {
+                    stroke-dashoffset: 0;
+                    transition: stroke-dashoffset .3s;
+                }
+            }
+
+            .arrow_icon {
+                animation: aniArrow .4s;
+                @keyframes aniArrow {
+                    0% {transform: translateX(6px);}
+                    100% {transform: translateX(0px);}
+                }
+            }
+        }
+
+        .arrow_icon {
+            display: block;
+            width: 22px;
+            height: 6px;
+            margin-left: -11px;
+            margin-top: -5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: url(../img/arrow_wh.png) no-repeat 100% 100%;
+            background-size: 180px 10px;
+        }
+    }
+}
+
+.divide_line {
+    width: 1px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+
+    span {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg,#6a495e,#789dbe);
+        animation: aniLine 2s cubic-bezier(.2, 1, .2, 1) infinite;
+
+        @keyframes aniLine {
+            0% {transform: translateY(-100%);}
+            25% {transform: translateY(0);}
+            75% {transform: translateY(0);}
+            100% {transform: translateY(100%);}
+        }
+    }
+}
+
+.section_07 {
+    padding: 200px 0;
+    background: #333;
+    color: $white;
+
+    .container {
+
+        h3 {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 140px;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 30px;
+            letter-spacing: 2px;
+        }
+
+        .casestudy_box {
+            
+            ul {
+                display: flex;
+                margin-top: 50px;
+                padding-left: calc(50% - 580px);
+                
+                li {
+                    width: 320px;
+                    min-width: 320px;
+                    margin-left: 40px;
+    
+                    &:nth-child(1) {
+                        margin-left: 0;
+                    }
+    
+                    a {
+                        color: $white_a5;
+                    }
+                    
+                    .casestudy_img {
+                        height: 426px;
+                        overflow: hidden;
+    
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            opacity: .4;
+                            transition: opacity .4s cubic-bezier(0, 0.15, 0, 0.5);
+                        }
+                    }
+    
+                    .title {
+                        position: relative;
+                        margin-top: 30px;
+                        overflow: hidden;
+                        
+                        &::before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            z-index: 1;
+                            top: 1px;
+                            left: 0;
+                            width: 100%;
+                            height: 1px;
+                            background: $white_a2;
+                        }
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            z-index: 2;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 2px;
+                            background: $white;
+                            transform: scaleX(0);
+                            transform-origin: right center;
+                            transition: transform .4s;
+                        }
+                        .category {
+                            position: relative;
+                            margin-top: 24px;
+    
+                            &::after {
+                                content: '';
+                                display: inline-block;
+                                width: 22px;
+                                height: 6px;
+                                position: absolute;
+                                top: 50%;
+                                right: 0;
+                                margin-top: -3px;
+                                background: url(../img/arrow_wh.png) no-repeat 100% 100%;
+                                background-size: 180px 10px;
+                                transform: scaleX(0);
+                                opacity: 0;
+                                transform-origin: right center;
+                                transition: opacity .4s, transform .2s;
+                            }
+                        }
+        
+                        .title_text {
+                            margin-top: 24px;
+                            opacity: 0;
+                            transition: all .4s cubic-bezier(0, 0.15, 0, 0.5);
+        
+                            h4 {
+                                color: $white;
+                                font-size: 18px;
+                                font-weight: bold;
+                            }
+                            p {
+                                margin-top: 10px;
+                                font-size: 13px;
+                                line-height: 20px;
+                            }
+                        }
+                    }
+    
+                    &:hover {
+                        .casestudy_img {
+    
+                            img {
+                                opacity: 1;
+                                animation: imgScale 1s;
+                                @keyframes imgScale {
+                                    0% {transform: scale(1.05);}
+                                    100% {transform: scale(1);}
+                                }
+                            }
+                        }
+                        .title {
+    
+                            &::after {
+                                transform: scaleX(1);
+                                transform-origin: left center;
+                            }
+    
+                            .category {
+    
+                                &::after {
+                                    opacity: 1;
+                                    transform: scaleX(1);
+                                    transform-origin: left center;
+                                }
+                            }
+    
+                            .title_text {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .journal_box {
+            margin-top: 180px;
+
+            ul {
+                max-width: 1440px;
+                margin: 50px auto 0;
+                padding: 0 140px;
+                
+                li {
+
+                    a {
+                        display: flex;
+                        position: relative;
+                        padding: 30px 0;
+                        color: $white_a5;
+
+                        .category {
+                            width: 160px;
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+                        
+                        .title_text {
+                            width: 680px;
+                            padding-right: 40px;
+
+                            h4 {
+                                color: $white;
+                                font-size: 18px;
+                                font-weight: bold;
+                            }
+                            p {
+                                margin-top: 5px;
+                                font-size: 13px;
+                                line-height: 20px;
+                            }
+                            .date {
+                                margin-top: 20px;
+                                font-size: 13px;
+                                line-height: 20px;
+                            }
+                        }
+                        
+                        .journalist {
+                            display: flex;
+                            align-items: center;
+                            width: 320px;
+                            height: 44px;
+                            padding-right: 40px;
+                            
+                            .icon_box {
+                                width: 44px;
+                                height: 44px;
+                                border-radius: 50%;
+                                overflow: hidden;
+
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .journalist_name {
+                                margin-left: 15px;
+                                font-size: 13px;
+                            }
+                        }
+
+                        &::before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            z-index: 1;
+                            top: 1px;
+                            left: 0;
+                            width: 100%;
+                            height: 1px;
+                            background: $white_a2;
+                        }
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            z-index: 2;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 2px;
+                            background: $white;
+                            transform: scaleX(0);
+                            transform-origin: right center;
+                            transition: transform .4s;
+                        }
+                        
+                        &:hover {
+    
+                            &::after {
+                                transform: scaleX(1);
+                                transform-origin: left center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
