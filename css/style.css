@@ -1351,6 +1351,10 @@ input[type="checkbox"] {
   color: #fff;
 }
 
+.section_07 .container {
+  position: relative;
+}
+
 .section_07 .container h3 {
   max-width: 1440px;
   margin: 0 auto;
@@ -1542,6 +1546,7 @@ input[type="checkbox"] {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  z-index: 2;
   padding: 30px 0;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -1582,6 +1587,7 @@ input[type="checkbox"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
   width: 320px;
   height: 44px;
   padding-right: 40px;
@@ -1601,6 +1607,28 @@ input[type="checkbox"] {
 .section_07 .container .journal_box ul li a .journalist .journalist_name {
   margin-left: 15px;
   font-size: 13px;
+}
+
+.section_07 .container .journal_box ul li a .journalist::after {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 6px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -3px;
+  background: url(../img/arrow_wh.png) no-repeat 100% 100%;
+  background-size: 180px 10px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  opacity: 0;
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+  -webkit-transition: opacity .4s, -webkit-transform .2s;
+  transition: opacity .4s, -webkit-transform .2s;
+  transition: opacity .4s, transform .2s;
+  transition: opacity .4s, transform .2s, -webkit-transform .2s;
 }
 
 .section_07 .container .journal_box ul li a::before {
@@ -1640,4 +1668,28 @@ input[type="checkbox"] {
           transform: scaleX(1);
   -webkit-transform-origin: left center;
           transform-origin: left center;
+}
+
+.section_07 .container .journal_box ul li a:hover .journalist::after {
+  opacity: 1;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.section_07 .container .journal_box ul li > img {
+  position: absolute;
+  z-index: 1;
+  width: 300px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0;
+  -webkit-transition: opacity .4s, top 1s ease-out, left 1s ease-out;
+  transition: opacity .4s, top 1s ease-out, left 1s ease-out;
+}
+
+.section_07 .container .journal_box ul li > img.on {
+  opacity: .4;
 }

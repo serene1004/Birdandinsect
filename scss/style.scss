@@ -222,7 +222,8 @@
     color: $white;
 
     .container {
-
+        position: relative;
+        
         h3 {
             max-width: 1440px;
             margin: 0 auto;
@@ -381,10 +382,11 @@
                 padding: 0 140px;
                 
                 li {
-
+                    
                     a {
                         display: flex;
                         position: relative;
+                        z-index: 2;
                         padding: 30px 0;
                         color: $white_a5;
 
@@ -418,6 +420,7 @@
                         .journalist {
                             display: flex;
                             align-items: center;
+                            position: relative;
                             width: 320px;
                             height: 44px;
                             padding-right: 40px;
@@ -437,6 +440,23 @@
                                 margin-left: 15px;
                                 font-size: 13px;
                             }
+
+                            &::after {
+                                content: '';
+                                display: inline-block;
+                                width: 22px;
+                                height: 6px;
+                                position: absolute;
+                                top: 50%;
+                                right: 0;
+                                margin-top: -3px;
+                                background: url(../img/arrow_wh.png) no-repeat 100% 100%;
+                                background-size: 180px 10px;
+                                transform: scaleX(0);
+                                opacity: 0;
+                                transform-origin: right center;
+                                transition: opacity .4s, transform .2s;
+                            }
                         }
 
                         &::before {
@@ -450,6 +470,7 @@
                             height: 1px;
                             background: $white_a2;
                         }
+
                         &::after {
                             content: '';
                             display: block;
@@ -471,6 +492,29 @@
                                 transform: scaleX(1);
                                 transform-origin: left center;
                             }
+
+                            .journalist{
+
+                                &::after {
+                                    opacity: 1;
+                                    transform: scaleX(1);
+                                    transform-origin: left center;
+                                }
+                            }
+                        }
+                    }
+
+                    > img {
+                        position: absolute;
+                        z-index: 1;
+                        width: 300px;
+                        height: 300px;
+                        object-fit: cover;
+                        opacity: 0;
+                        transition: opacity .4s, top 1s ease-out, left 1s ease-out;
+
+                        &.on {
+                            opacity: .4;
                         }
                     }
                 }

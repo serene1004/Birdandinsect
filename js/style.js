@@ -193,5 +193,25 @@ function imgPositionY () {
 }
 imgPositionY ();
 
-
 // section_06 내에선 nav color:#000 이어야함.
+
+function journalImageMoveEvent () {
+    let journalList = document.querySelectorAll('.journal_box li');
+    
+    journalList.forEach(el => el.addEventListener('mousemove', function(e){
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+    
+        this.children[1].style.top = mouseY+300 + 'px';
+        this.children[1].style.left = mouseX+100 + 'px';
+    }));
+
+    journalList.forEach(el => el.addEventListener('mouseenter', function(){
+        this.children[1].classList.add('on');
+    }));
+    
+    journalList.forEach(el => el.addEventListener('mouseleave', function(){
+        this.children[1].classList.remove('on');
+    }));
+}
+journalImageMoveEvent ();
